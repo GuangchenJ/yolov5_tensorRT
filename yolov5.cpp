@@ -7,6 +7,7 @@
 #include "cuda_runtime_api.h"
 #include "logging.h"
 #include "common.hpp"
+#include "mJpegServer.h"
 
 #define USE_FP16  // comment out this if want to use FP32 如果要使用FP32，请将此注释掉
 #define DEVICE 0  // GPU id
@@ -560,6 +561,7 @@ void doInference(IExecutionContext &context, float *input, float *output, int ba
 }
 
 int main(int argc, char **argv) {
+
     // -----------------------
     time_t timep;
     // ------------------------
@@ -624,6 +626,10 @@ int main(int argc, char **argv) {
     // ----------------------------------
 
     float fps = 0;
+
+    mJpegServer server;
+    server.initSocket(19025);
+    server.createConnetion();
 
     while (true) {
         std::chrono::high_resolution_clock::time_point beginTime = std::chrono::high_resolution_clock::now();
@@ -691,23 +697,34 @@ int main(int argc, char **argv) {
             cv::putText(img, std::string("FPS: ") + std::to_string((int) fps), cv::Point(10, 50),
                         cv::FONT_HERSHEY_PLAIN,
                         2, cv::Scalar(0xFF, 0xBF, 0x00), 4);
+        }
+        std::chrono::high_resolution_clock::time_point endTime = std::chrono::high_resolution_clock::now();
 
+        fps = round(
+                (1000.0) / (float) std::chrono::duration_cast<std::chrono::milliseconds>(endTime - beginTime).count());
 
-            std::chrono::high_resolution_clock::time_point endTime = std::chrono::high_resolution_clock::now();
+        // -----------------------------------------------------------------------------------
+        //imshow("检测结果", img);
+        if (cv::waitKey(30) >= 0) break;
 
-            fps = round(
-                    (1000.0) / (float) std::chrono::duration_cast<std::chrono::milliseconds>(endTime - beginTime).count());
+        time(&timep);
+        char frame_filename[32];
+        strftime(frame_filename, sizeof(frame_filename), "%M%S", localtime(&timep));
 
-            // -----------------------------------------------------------------------------------
-            imshow("检测结果", img);
-            if (cv::waitKey(30) >= 0) break;
+        cv::imwrite(std::string("../res/result.jpeg"), img);
+        // ----------------------------------------------------------------------------------
+        {
+            server.openJpegData(std::string("../res/result.jpeg"));
 
-            time(&timep);
-            char frame_filename[32];
-            strftime(frame_filename, sizeof(frame_filename), "%M%S", localtime(&timep));
-
-            cv::imwrite(std::string("../res/") + std::string("result.jpeg"), img);
-            // ----------------------------------------------------------------------------------
+            try {
+                server.sendFrame();
+            } catch (int x) {
+                server.closeConnection();
+#ifdef DEBUG
+                std::cout<<"connection out"<< std::endl;
+#endif //DEBUG
+                server.createConnetion();
+            }
         }
     }
     // ---------------------------------------
@@ -719,6 +736,10 @@ int main(int argc, char **argv) {
     context->destroy();
     engine->destroy();
     runtime->destroy();
+
+    server.closeSocket();
+    // 正常情况下不能到这里来
+    std::cout << "quit mjpeg server" << std::endl;
 
     // Print histogram of the output distribution
     // std::cout << "\nOutput:\n\n";

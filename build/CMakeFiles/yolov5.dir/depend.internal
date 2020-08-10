@@ -4,6 +4,7 @@
 CMakeFiles/yolov5.dir/yolov5.cpp.o
  /home/ynu/Daydayup/yolov5_tensorRT/common.hpp
  /home/ynu/Daydayup/yolov5_tensorRT/logging.h
+ /home/ynu/Daydayup/yolov5_tensorRT/mJpegServer.h
  /home/ynu/Daydayup/yolov5_tensorRT/yololayer.h
  /home/ynu/Daydayup/yolov5_tensorRT/yolov5.cpp
  /usr/local/cuda/include/builtin_types.h

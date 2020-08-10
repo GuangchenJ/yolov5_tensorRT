@@ -3,6 +3,7 @@
 
 CMakeFiles/yolov5.dir/yolov5.cpp.o: ../common.hpp
 CMakeFiles/yolov5.dir/yolov5.cpp.o: ../logging.h
+CMakeFiles/yolov5.dir/yolov5.cpp.o: ../mJpegServer.h
 CMakeFiles/yolov5.dir/yolov5.cpp.o: ../yololayer.h
 CMakeFiles/yolov5.dir/yolov5.cpp.o: ../yolov5.cpp
 CMakeFiles/yolov5.dir/yolov5.cpp.o: /usr/local/cuda/include/builtin_types.h
