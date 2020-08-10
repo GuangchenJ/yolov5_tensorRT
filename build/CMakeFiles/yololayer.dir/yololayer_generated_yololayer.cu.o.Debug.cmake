@@ -58,18 +58,18 @@ endif()
 
 # Set these up as variables to make reading the generated file easier
 set(CMAKE_COMMAND "/usr/bin/cmake") # path
-set(source_file "/home/ynu/PycharmProjects/tensorrtx/yolov5/yololayer.cu") # path
-set(NVCC_generated_dependency_file "/home/ynu/PycharmProjects/tensorrtx/yolov5/build/CMakeFiles/yololayer.dir//yololayer_generated_yololayer.cu.o.NVCC-depend") # path
-set(cmake_dependency_file "/home/ynu/PycharmProjects/tensorrtx/yolov5/build/CMakeFiles/yololayer.dir//yololayer_generated_yololayer.cu.o.depend") # path
+set(source_file "/home/ynu/Daydayup/yolov5_tensorRT/yololayer.cu") # path
+set(NVCC_generated_dependency_file "/home/ynu/Daydayup/yolov5_tensorRT/build/CMakeFiles/yololayer.dir//yololayer_generated_yololayer.cu.o.NVCC-depend") # path
+set(cmake_dependency_file "/home/ynu/Daydayup/yolov5_tensorRT/build/CMakeFiles/yololayer.dir//yololayer_generated_yololayer.cu.o.depend") # path
 set(CUDA_make2cmake "/usr/share/cmake-3.16/Modules/FindCUDA/make2cmake.cmake") # path
 set(CUDA_parse_cubin "/usr/share/cmake-3.16/Modules/FindCUDA/parse_cubin.cmake") # path
 set(build_cubin OFF) # bool
 set(CUDA_HOST_COMPILER "/usr/bin/cc") # path
 # We won't actually use these variables for now, but we need to set this, in
 # order to force this file to be run again if it changes.
-set(generated_file_path "/home/ynu/PycharmProjects/tensorrtx/yolov5/build/CMakeFiles/yololayer.dir//.") # path
-set(generated_file_internal "/home/ynu/PycharmProjects/tensorrtx/yolov5/build/CMakeFiles/yololayer.dir//./yololayer_generated_yololayer.cu.o") # path
-set(generated_cubin_file_internal "/home/ynu/PycharmProjects/tensorrtx/yolov5/build/CMakeFiles/yololayer.dir//./yololayer_generated_yololayer.cu.o.cubin.txt") # path
+set(generated_file_path "/home/ynu/Daydayup/yolov5_tensorRT/build/CMakeFiles/yololayer.dir//.") # path
+set(generated_file_internal "/home/ynu/Daydayup/yolov5_tensorRT/build/CMakeFiles/yololayer.dir//./yololayer_generated_yololayer.cu.o") # path
+set(generated_cubin_file_internal "/home/ynu/Daydayup/yolov5_tensorRT/build/CMakeFiles/yololayer.dir//./yololayer_generated_yololayer.cu.o.cubin.txt") # path
 
 set(CUDA_NVCC_EXECUTABLE "/usr/local/cuda/bin/nvcc") # path
 set(CUDA_NVCC_FLAGS  ;; ) # list
@@ -79,7 +79,7 @@ set(CUDA_NVCC_FLAGS_MINSIZEREL  ; )
 set(CUDA_NVCC_FLAGS_RELEASE  ; )
 set(CUDA_NVCC_FLAGS_RELWITHDEBINFO  ; )
 set(nvcc_flags -m64;--std;c++11;-Dyololayer_EXPORTS) # list
-set(CUDA_NVCC_INCLUDE_DIRS [==[/usr/local/cuda/include;/home/ynu/PycharmProjects/tensorrtx/yolov5/include;/usr/local/cuda/include;/home/ynu/PycharmProjects/tensorrtx/yolov5/OpenCV_INCLUDE_DIRS]==]) # list (needs to be in lua quotes to address backslashes)
+set(CUDA_NVCC_INCLUDE_DIRS [==[/usr/local/cuda/include;/home/ynu/Daydayup/yolov5_tensorRT/include;/usr/local/cuda/include;/home/ynu/Daydayup/yolov5_tensorRT/OpenCV_INCLUDE_DIRS]==]) # list (needs to be in lua quotes to address backslashes)
 string(REPLACE "\\" "/" CUDA_NVCC_INCLUDE_DIRS "${CUDA_NVCC_INCLUDE_DIRS}")
 set(CUDA_NVCC_COMPILE_DEFINITIONS [==[]==]) # list (needs to be in lua quotes see #16510 ).
 set(format_flag "-c") # string

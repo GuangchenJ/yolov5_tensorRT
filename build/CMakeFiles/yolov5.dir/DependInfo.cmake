@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ynu/PycharmProjects/tensorrtx/yolov5/yolov5.cpp" "/home/ynu/PycharmProjects/tensorrtx/yolov5/build/CMakeFiles/yolov5.dir/yolov5.cpp.o"
+  "/home/ynu/Daydayup/yolov5_tensorRT/yolov5.cpp" "/home/ynu/Daydayup/yolov5_tensorRT/build/CMakeFiles/yolov5.dir/yolov5.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -18,7 +18,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/ynu/PycharmProjects/tensorrtx/yolov5/build/CMakeFiles/yololayer.dir/DependInfo.cmake"
+  "/home/ynu/Daydayup/yolov5_tensorRT/build/CMakeFiles/yololayer.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

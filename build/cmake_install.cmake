@@ -1,4 +1,4 @@
-# Install script for directory: /home/ynu/PycharmProjects/tensorrtx/yolov5
+# Install script for directory: /home/ynu/Daydayup/yolov5_tensorRT
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ynu/PycharmProjects/tensorrtx/yolov5/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ynu/Daydayup/yolov5_tensorRT/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

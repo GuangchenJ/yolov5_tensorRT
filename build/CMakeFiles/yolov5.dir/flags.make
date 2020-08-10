@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11 -Wall -Ofast -Wfatal-errors -D_MWAITXINTRIN_H_INCLUDED -
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ynu/PycharmProjects/tensorrtx/yolov5/include -I/usr/local/cuda/include -I/home/ynu/PycharmProjects/tensorrtx/yolov5/OpenCV_INCLUDE_DIRS -isystem /usr/local/include/opencv4 
+CXX_INCLUDES = -I/home/ynu/Daydayup/yolov5_tensorRT/include -I/usr/local/cuda/include -I/home/ynu/Daydayup/yolov5_tensorRT/OpenCV_INCLUDE_DIRS -isystem /usr/local/include/opencv4 
 

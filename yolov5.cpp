@@ -602,13 +602,6 @@ int main(int argc, char **argv) {
         return -1;
     }
 
-    // TODO:
-//    std::vector<std::string> file_names;
-//    if (read_files_in_dir(argv[2], file_names) < 0) {
-//        std::cout << "read_files_in_dir failed." << std::endl;
-//        return -1;
-//    }
-
     // prepare input data ---------------------------
     static float data[3 * INPUT_H * INPUT_W];
     //for (int i = 0; i < 3 * INPUT_H * INPUT_W; i++)
@@ -630,34 +623,16 @@ int main(int argc, char **argv) {
     }
     // ----------------------------------
 
-//    int fcount = 0;
-//    for (int f = 0; f < (int) file_names.size(); f++) {
-//    for (int f = 0; f < 50; f++) {
+    float fps = 0;
+
     while (true) {
+        std::chrono::high_resolution_clock::time_point beginTime = std::chrono::high_resolution_clock::now();
+
         // ----------------------------------------------
         cv::Mat img;
         capture >> img;
         if (img.empty()) continue;
         // ----------------------------------------------
-
-//        fcount++;
-//        if (fcount < BATCH_SIZE && f + 1 != (int) file_names.size()) continue;
-//        for (int b = 0; b < fcount; b++) {
-//            cv::Mat img = cv::imread(std::string(argv[2]) + "/" + file_names[f - fcount + 1 + b]);
-//            if (img.empty()) continue;
-//            cv::Mat pr_img = preprocess_img(img); // letterbox BGR to RGB
-//            int i = 0;
-//            for (int row = 0; row < INPUT_H; ++row) {
-//                uchar *uc_pixel = pr_img.data + row * pr_img.step;
-//                for (int col = 0; col < INPUT_W; ++col) {
-//                    data[b * 3 * INPUT_H * INPUT_W + i] = (float) uc_pixel[2] / 255.0;
-//                    data[b * 3 * INPUT_H * INPUT_W + i + INPUT_H * INPUT_W] = (float) uc_pixel[1] / 255.0;
-//                    data[b * 3 * INPUT_H * INPUT_W + i + 2 * INPUT_H * INPUT_W] = (float) uc_pixel[0] / 255.0;
-//                    uc_pixel += 3;
-//                    ++i;
-//                }
-//            }
-//        }
 
         {
             //if (img.empty()) continue;
@@ -679,33 +654,16 @@ int main(int argc, char **argv) {
         }
 
         // Run inference
-        auto start = std::chrono::system_clock::now();
+//        auto start = std::chrono::system_clock::now();
         doInference(*context, data, prob, BATCH_SIZE);
-        auto end = std::chrono::system_clock::now();
-        std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
+//        auto end = std::chrono::system_clock::now();
+        //std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms" << std::endl;
         std::vector<std::vector<Yolo::Detection>> batch_res(1);
-//        for (int b = 0; b < fcount; b++) {
-//            auto &res = batch_res[b];
-//            nms(res, &prob[b * OUTPUT_SIZE], CONF_THRESH, NMS_THRESH);
-//        }
 
         {
             auto &res = batch_res[0];
             nms(res, &prob[0], CONF_THRESH, NMS_THRESH);
         }
-
-//        for (int b = 0; b < fcount; b++) {
-//            auto &res = batch_res[b];
-//            //std::cout << res.size() << std::endl;
-//            cv::Mat img = cv::imread(std::string(argv[2]) + "/" + file_names[f - fcount + 1 + b]);
-//            for (size_t j = 0; j < res.size(); j++) {
-//                cv::Rect r = get_rect(img, res[j].bbox);
-//                cv::rectangle(img, r, cv::Scalar(0x27, 0xC1, 0x36), 2);
-//                cv::putText(img, std::to_string((int) res[j].class_id), cv::Point(r.x, r.y - 1), cv::FONT_HERSHEY_PLAIN,
-//                            1.2, cv::Scalar(0xFF, 0xFF, 0xFF), 2);
-//            }
-//            cv::imwrite("_" + file_names[f - fcount + 1 + b], img);
-//        }
 
         // 绘制边框的代码
         {
@@ -729,7 +687,16 @@ int main(int argc, char **argv) {
                                 1.2, cv::Scalar(0xFF, 0xFF, 0xFF), 2);
                 }
             }
-//            cv::imwrite("_" + file_names[f - fcount + 1 + b], img);
+
+            cv::putText(img, std::string("FPS: ") + std::to_string((int) fps), cv::Point(10, 50),
+                        cv::FONT_HERSHEY_PLAIN,
+                        2, cv::Scalar(0xFF, 0xBF, 0x00), 4);
+
+
+            std::chrono::high_resolution_clock::time_point endTime = std::chrono::high_resolution_clock::now();
+
+            fps = round(
+                    (1000.0) / (float) std::chrono::duration_cast<std::chrono::milliseconds>(endTime - beginTime).count());
 
             // -----------------------------------------------------------------------------------
             imshow("检测结果", img);
@@ -739,10 +706,9 @@ int main(int argc, char **argv) {
             char frame_filename[32];
             strftime(frame_filename, sizeof(frame_filename), "%M%S", localtime(&timep));
 
-            cv::imwrite(std::string("../res/") + std::string(frame_filename) + std::to_string(clock()) + ".png", img);
+            cv::imwrite(std::string("../res/") + std::string("result.jpeg"), img);
             // ----------------------------------------------------------------------------------
         }
-//        fcount = 0;
     }
     // ---------------------------------------
     // Release the camera or video file

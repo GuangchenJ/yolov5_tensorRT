@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ynu/PycharmProjects/tensorrtx/yolov5/common.hpp
+/home/ynu/Daydayup/yolov5_tensorRT/common.hpp
 fstream
 -
 map
@@ -20,13 +20,13 @@ opencv2/opencv.hpp
 dirent.h
 -
 NvInfer.h
-/home/ynu/PycharmProjects/tensorrtx/yolov5/NvInfer.h
+/home/ynu/Daydayup/yolov5_tensorRT/NvInfer.h
 yololayer.h
-/home/ynu/PycharmProjects/tensorrtx/yolov5/yololayer.h
+/home/ynu/Daydayup/yolov5_tensorRT/yololayer.h
 
-/home/ynu/PycharmProjects/tensorrtx/yolov5/logging.h
+/home/ynu/Daydayup/yolov5_tensorRT/logging.h
 NvInferRuntimeCommon.h
-/home/ynu/PycharmProjects/tensorrtx/yolov5/NvInferRuntimeCommon.h
+/home/ynu/Daydayup/yolov5_tensorRT/NvInferRuntimeCommon.h
 cassert
 -
 ctime
@@ -42,15 +42,15 @@ sstream
 string
 -
 
-/home/ynu/PycharmProjects/tensorrtx/yolov5/yololayer.h
+/home/ynu/Daydayup/yolov5_tensorRT/yololayer.h
 vector
 -
 string
 -
 NvInfer.h
-/home/ynu/PycharmProjects/tensorrtx/yolov5/NvInfer.h
+/home/ynu/Daydayup/yolov5_tensorRT/NvInfer.h
 
-/home/ynu/PycharmProjects/tensorrtx/yolov5/yolov5.cpp
+/home/ynu/Daydayup/yolov5_tensorRT/yolov5.cpp
 iostream
 -
 chrono
@@ -58,11 +58,11 @@ chrono
 unistd.h
 -
 cuda_runtime_api.h
-/home/ynu/PycharmProjects/tensorrtx/yolov5/cuda_runtime_api.h
+/home/ynu/Daydayup/yolov5_tensorRT/cuda_runtime_api.h
 logging.h
-/home/ynu/PycharmProjects/tensorrtx/yolov5/logging.h
+/home/ynu/Daydayup/yolov5_tensorRT/logging.h
 common.hpp
-/home/ynu/PycharmProjects/tensorrtx/yolov5/common.hpp
+/home/ynu/Daydayup/yolov5_tensorRT/common.hpp
 
 /usr/local/cuda/include/builtin_types.h
 device_types.h
