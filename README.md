@@ -11,7 +11,7 @@
 ## 操作步骤：
 
 
-1. 训练自己的yolov5模型
+1. 训练自己的`yolov5`模型
 
 2. 先从 yolov5{s|l|m|x}.pt 中 生成 yolov5{s|l|m|x}.wts（注意自己修改py文件中的参数）
 
@@ -19,9 +19,9 @@
    python gen_wts.py
 ```
    
-3. 更改[static constexpr int CLASS_NUM = 80;](https://github.com/Cocktail98/yolov5_tensorRT/blob/2bf6fbaec971492c646737768b4875bf16415e2b/yololayer.h#L13)中的CLASS_NUM为您yolov5模型的输出大小，如果更改了模型结构，请在对应的[createEngine_s](https://github.com/Cocktail98/yolov5_tensorRT/blob/2bf6fbaec971492c646737768b4875bf16415e2b/yolov5.cpp#L37), [createEngine_m](https://github.com/Cocktail98/yolov5_tensorRT/blob/2bf6fbaec971492c646737768b4875bf16415e2b/yolov5.cpp#L148), [createEngine_l](https://github.com/Cocktail98/yolov5_tensorRT/blob/2bf6fbaec971492c646737768b4875bf16415e2b/yolov5.cpp#L266), [createEngine_x](https://github.com/Cocktail98/yolov5_tensorRT/blob/2bf6fbaec971492c646737768b4875bf16415e2b/yolov5.cpp#L384)中修改对应与yolov5{s|l|m|x}的结构。
+3. 更改[static constexpr int CLASS_NUM = 80;](https://github.com/Cocktail98/yolov5_tensorRT/blob/2bf6fbaec971492c646737768b4875bf16415e2b/yololayer.h#L13)中的CLASS_NUM为您yolov5模型的输出大小，如果更改了模型结构，请在对应的[createEngine_s](https://github.com/Cocktail98/yolov5_tensorRT/blob/2bf6fbaec971492c646737768b4875bf16415e2b/yolov5.cpp#L37), [createEngine_m](https://github.com/Cocktail98/yolov5_tensorRT/blob/2bf6fbaec971492c646737768b4875bf16415e2b/yolov5.cpp#L148), [createEngine_l](https://github.com/Cocktail98/yolov5_tensorRT/blob/2bf6fbaec971492c646737768b4875bf16415e2b/yolov5.cpp#L266), [createEngine_x](https://github.com/Cocktail98/yolov5_tensorRT/blob/2bf6fbaec971492c646737768b4875bf16415e2b/yolov5.cpp#L384)中修改对应与 `yolov5{s|l|m|x}` 的结构。
 
-4. 将生成的 yolov5{s|l|x|m}.wts 放进该文件夹 yolov5/ 中，然后build and run
+4. 将生成的 `yolov5{s|l|x|m}.wts` 放进该文件夹 `yolov5/` 中，然后 build and run
 
 ```$xslt
     mkdir build
