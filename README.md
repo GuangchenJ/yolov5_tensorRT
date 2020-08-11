@@ -13,7 +13,7 @@
 
 1. 训练自己的`yolov5`模型
 
-2. 先从 yolov5{s|l|m|x}.pt 中 生成 yolov5{s|l|m|x}.wts（注意自己修改py文件中的参数）
+2. 先从 `yolov5{s|l|m|x}.pt` 中 生成 `yolov5{s|l|m|x}.wts`（注意自己修改py文件中的参数）
 
 ```$python  
    python gen_wts.py
