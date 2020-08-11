@@ -6,7 +6,7 @@
 
 模型来自[ultralytics/yolov5](https://github.com/ultralytics/yolov5).
 
-之后会将图片保存到 ./res/ 文件夹下
+之后会将图片保存到 `./res/` 文件夹下
 
 ## 操作步骤：
 
